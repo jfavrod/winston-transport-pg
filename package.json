@@ -4,9 +4,11 @@
   "description": "A PostgreSQL Transport for the Winston Logger",
   "main": "dist/index.js",
   "scripts": {
+    "build": "run-s lint test clean compile",
+    "clean": "rm -rf dist/*",
     "compile": "tsc",
     "lint": "npx eslint src/ --ext .ts",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\""
   },
   "keywords": [
     "postgresql",
@@ -22,16 +24,17 @@
   "author": "Jason Favrod <mail@jasonfavrod.com>",
   "license": "MIT",
   "dependencies": {
+    "pg": "^8.3.3",
+    "winston-transport": "^4.4.0"
+  },
+  "devDependencies": {
     "@types/node": "^14.6.2",
     "@types/pg": "^7.14.4",
     "@typescript-eslint/eslint-plugin": "^4.0.1",
     "@typescript-eslint/parser": "^4.0.1",
     "eslint": "^7.8.1",
-    "pg": "^8.3.3",
+    "npm-run-all": "^4.1.5",
     "typescript": "^4.0.2",
-    "winston-transport": "^4.4.0"
-  },
-  "devDependencies": {
     "winston": "^3.3.3"
   }
 }

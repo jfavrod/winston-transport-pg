@@ -30,4 +30,41 @@ npm i winston-transports-pg
 
 Use
 ---
-Coming soon...
+To create an instance of the PostgresTransport, we need two things:
+
+1. A `pg` Pool instance
+2. An IPostgresTransportOptions object
+
+### IPostgresTransportOptions
+Below is the interface for the `IPostgresTransportOptions` object.
+
+```TypeScript
+interface IPostgresTransportOptions {
+  level?: string;
+  tableName: string;
+}
+```
+
+### Creating an Instance
+```TypeScript
+import { Pool } from 'pg';
+import { createLogger, format } from 'winston';
+
+// First create a Pool instance.
+const pool = new Pool('postgres://username:password@hostname:5432/database');
+
+// Set up our options.
+const opts = {
+  level: 'info',
+  tableName: 'logs',
+};
+
+// Create the instance.
+const postgresTransport = new PostgresTransport(pool, opts);
+
+// Add Transport to Logger
+const logger = createLogger({
+  format: format.json(),
+  transports: [ postgresTransport ]
+});
+```

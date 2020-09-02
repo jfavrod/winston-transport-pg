@@ -1,6 +1,6 @@
 {
   "name": "winston-transport-pg",
-  "version": "0.1.0-dev.1",
+  "version": "0.1.0-dev.2",
   "description": "A PostgreSQL Transport for the Winston Logger",
   "main": "dist/index.js",
   "scripts": {

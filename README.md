@@ -38,7 +38,7 @@ To create an instance of the PostgresTransport, we need two things:
 ### IPostgresTransportOptions
 Below is the interface for the `IPostgresTransportOptions` object.
 
-```TypeScript
+```typescript
 interface IPostgresTransportOptions {
   level?: string;
   tableName: string;
@@ -46,7 +46,7 @@ interface IPostgresTransportOptions {
 ```
 
 ### Creating an Instance
-```TypeScript
+```typescript
 import { Pool } from 'pg';
 import { createLogger, format } from 'winston';
 

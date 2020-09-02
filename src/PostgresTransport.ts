@@ -14,13 +14,14 @@ export default class PostgresTransport extends Transport {
         this.log = this.log.bind(this);
     }
 
-    public async log(info: any, callback: () => any): Promise<void> {
+    public async log(info: {[index: string]: string | number}, callback: () => unknown): Promise<void> {
         const sql = `INSERT INTO ${this.tableName} (timestamp, level, message, meta) VALUES ($1,$2,$3,$4);`;
         let client: PoolClient | undefined;
 
         try {
             client = await this.pool.connect();
             await client.query(sql, [info.timestamp, info.level, info.message, info.meta]);
+            callback();
         }
         catch (err) {
             // tslint:disable-next-line: no-console

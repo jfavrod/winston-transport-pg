@@ -23,6 +23,10 @@
   ],
   "author": "Jason Favrod <mail@jasonfavrod.com>",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:jfavrod/winston-transport-pg.git"
+  },
   "dependencies": {
     "pg": "^8.3.3",
     "winston-transport": "^4.4.0"

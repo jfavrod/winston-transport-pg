@@ -25,7 +25,7 @@ export default class PostgresTransport extends Transport {
         }
         catch (err) {
             // tslint:disable-next-line: no-console
-            console.log(`${this.className}.log(${JSON.stringify(info)}): Falure to Log: ${err.message}`);
+            console.log(`${this.className}.log(${JSON.stringify(info)}): Failure to Log: ${(err as Error).message}`);
         }
         finally {
             if (client) { client.release(); }

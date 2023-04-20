@@ -25,7 +25,7 @@ CREATE TABLE logs (
 Installation
 ------------
 ```
-npm i winston-transports-pg
+npm i winston-transport-pg
 ```
 
 Use
